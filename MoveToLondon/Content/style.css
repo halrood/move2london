@@ -76,6 +76,10 @@ h1, h2, h3, h4, h5, h6 {
 	color: #222;
 }
 
+#mainheading {
+	font: 900 40px/1.2 Raleway, sans-serif;
+}
+
 h2 {
 	font-size: 30px;
 	margin: 0 0 30px;
@@ -387,7 +391,7 @@ textarea.form-control {
 
 .start {
 	font-family: Raleway, "Times New Roman", Times, sans-serif;
-	font-size: 16px;
+	font-size: 25px;
 	font-style: normal;
 	text-transform: none;
 	margin: 15px 0;

@@ -134,6 +134,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\EmailHelper.cs" />
     <Compile Include="Models\Room.cs" />
     <Compile Include="Models\RoomContext.cs" />
     <Compile Include="Models\RoomInitializer.cs" />

@@ -16,6 +16,6 @@ namespace MoveToLondon.Models
         }
 
         public DbSet<Room> Rooms { get; set; }
-        //public DbSet<RoomPhoto> RoomPhotos { get; set; }
+        public DbSet<RoomPhoto> RoomPhotos { get; set; }
     }
 }

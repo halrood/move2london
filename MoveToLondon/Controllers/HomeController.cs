@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MoveToLondon.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,6 +17,13 @@ namespace MoveToLondon.Controllers
             return View();
         }
 
+        public ActionResult OnlineBooking()
+        {
+            RoomContext rc = new RoomContext();
+            OnlineBooking ob = new Models.OnlineBooking();
 
+            ob.Rooms = rc.Rooms.ToList();
+            return View(ob);
+        }
     }
 }

@@ -1,0 +1,80 @@
+﻿@model MoveToLondon.Models.OnlineBooking
+
+@{
+    ViewBag.Title = "OnlineBooking";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="pagestart" class="pfblock pfblock-gray">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-10 col-sm-offset-1">
+                <div class="pfblock-header wow fadeInUp">
+                    <h2 class="pfblock-title">Here are our rooms you would like to book!</h2>
+                    <div class="pfblock-line"></div>
+                    <div class="pfblock-subtitle">
+                        We believe you will enjoy our services.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- .container -->
+
+    @for (int i = 0; i < Model.Rooms.Count; i++)
+    {
+        string id = "room" + i + "Slider";
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-5 col-sm-offset-1">
+                    <div id="@id" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            @{
+        int counter = 0;
+        foreach (var photo in Model.Rooms[i].ListRoomPhoto)
+        {
+            string itemClass = "";
+            if (counter == 0)
+            {
+                itemClass = "item active";
+            }
+            else
+            {
+                itemClass = "item";
+            }
+            counter++;
+                                <div class="@itemClass">
+                                    <img src="@photo.Path" style="width: 500px; height:500px" alt="First slide">
+                                </div>
+        }
+                            }
+                        </div>
+                        <!-- /carousel-inner -->
+                        <a class="left carousel-control" href="#@id" data-slide="prev">
+                            <span class="fa fa-chevron-left"></span>
+                        </a>
+                        <a class="right carousel-control" href="#@id" data-slide="next">
+                            <span class="fa fa-chevron-right"></span>
+                        </a>
+                    </div>
+                    <!-- /carousel -->
+                </div>
+                <div class="col-sm-4 col-sm-offset-1">
+                </div>
+            </div>
+        </div>
+        <!-- .container -->
+        <br />
+        <br />
+        
+        <div class="pfblock-line"></div>
+        <br />
+    }
+
+</section>
+<!-- Services end -->

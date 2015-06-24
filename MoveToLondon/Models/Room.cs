@@ -23,16 +23,16 @@ namespace MoveToLondon.Models
 
         //private ICollection<RoomPhoto> listRoomPhoto;
 
-        //public virtual ICollection<RoomPhoto> ListRoomPhoto
-        //{
-        //    get;
-        //    set;
-        //}
-        public List<string> Photos
+        public virtual ICollection<RoomPhoto> ListRoomPhoto
         {
             get;
             set;
         }
+        //public List<string> Photos
+        //{
+        //    get;
+        //    set;
+        //}
 
         //private string roomType;    //: Double Room / Single Room
 

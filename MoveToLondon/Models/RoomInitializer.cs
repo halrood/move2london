@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MoveToLondon.Models
 {
-    public class RoomInitializer : CreateDatabaseIfNotExists<RoomContext>
+    public class RoomInitializer : DropCreateDatabaseIfModelChanges<RoomContext>
     {
         public RoomInitializer()
         {
@@ -23,9 +23,15 @@ namespace MoveToLondon.Models
 
         private List<Room> GetRooms()
         {
-            //List<RoomPhoto> room1Photos = new List<RoomPhoto> { new RoomPhoto() { Path = string.Empty } };
-            //List<RoomPhoto> room2Photos = new List<RoomPhoto> { new RoomPhoto() { Path = string.Empty } };
-            //List<RoomPhoto> room3Photos = new List<RoomPhoto> { new RoomPhoto() { Path = string.Empty } };
+            List<RoomPhoto> room1Photos = new List<RoomPhoto> { new RoomPhoto() { Path = @"/Assets/Room1Image1.jpg" },
+                new RoomPhoto() {Path = @"/Assets/Room1Image2.jpg"},
+                new RoomPhoto() {Path = @"/Assets/Room1Image3.jpg"}};
+            List<RoomPhoto> room2Photos = new List<RoomPhoto> { new RoomPhoto() {Path = @"/Assets/Room2Image1.jpg" },
+                new RoomPhoto() {Path = @"/Assets/Room2Image2.jpg"},
+                new RoomPhoto() {Path = @"/Assets/Room2Image3.jpg"}};
+            List<RoomPhoto> room3Photos = new List<RoomPhoto> { new RoomPhoto() { Path = @"/Assets/Room3Image1.jpg" },
+                new RoomPhoto() {Path = @"/Assets/Room3Image2.jpg"},
+                new RoomPhoto() {Path = @"/Assets/Room3Image3.jpg"}};
 
             #region Descriptions
 
@@ -69,9 +75,9 @@ namespace MoveToLondon.Models
 
             #endregion Descriptions
 
-            Room r1 = new Room { Address = "OLDHILL STREET N16 6NA- LONDON", AvailabilityStatus = "Available", BookingFee = 150, Description = Room1_Description, RentPerMonth = 700, RoomType = "Double", Title = "Double Room", Photos = null };
-            Room r2 = new Room { Address = "SEVEN SISTERS N15 5HP - LONDON", AvailabilityStatus = "Available", BookingFee = 150, Description = Room2_Description, RentPerMonth = 130, RoomType = "Double", Title = "Double Room", Photos = null };
-            Room r3 = new Room { Address = "ESSEX ROAD N1 2FX- LONDON", AvailabilityStatus = "Available", BookingFee = 150, Description = Room3_Description, RentPerMonth = 175, RoomType = "Double", Title = "Double Room", Photos = null };
+            Room r1 = new Room { Address = "OLDHILL STREET N16 6NA- LONDON", AvailabilityStatus = "Available", BookingFee = 150, Description = Room1_Description, RentPerMonth = 700, RoomType = "Double", Title = "Double Room", ListRoomPhoto = room1Photos };
+            Room r2 = new Room { Address = "SEVEN SISTERS N15 5HP - LONDON", AvailabilityStatus = "Available", BookingFee = 150, Description = Room2_Description, RentPerMonth = 130, RoomType = "Double", Title = "Double Room", ListRoomPhoto = room2Photos };
+            Room r3 = new Room { Address = "ESSEX ROAD N1 2FX- LONDON", AvailabilityStatus = "Available", BookingFee = 150, Description = Room3_Description, RentPerMonth = 175, RoomType = "Double", Title = "Double Room", ListRoomPhoto = room3Photos };
             var rooms = new List<Room> { r1, r2, r3 };
 
             return rooms;

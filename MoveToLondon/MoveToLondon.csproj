@@ -135,6 +135,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\EmailHelper.cs" />
+    <Compile Include="Models\OnlineBooking.cs" />
     <Compile Include="Models\Room.cs" />
     <Compile Include="Models\RoomContext.cs" />
     <Compile Include="Models\RoomInitializer.cs" />
@@ -146,9 +147,19 @@
     <Content Include="App_Data\RoomFlog_log.ldf">
       <DependentUpon>RoomFlog.mdf</DependentUpon>
     </Content>
+    <Content Include="Assets\Room1Image1.jpg" />
+    <Content Include="Assets\Room1Image2.jpg" />
+    <Content Include="Assets\Room1Image3.jpg" />
+    <Content Include="Assets\Room2Image1.jpg" />
+    <Content Include="Assets\Room2Image2.jpg" />
+    <Content Include="Assets\Room2Image3.jpg" />
+    <Content Include="Assets\Room3Image1.jpg" />
+    <Content Include="Assets\Room3Image2.jpg" />
+    <Content Include="Assets\Room3Image3.jpg" />
     <Content Include="Content\animate.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\pace.css" />
     <Content Include="Content\simple-line-icons.css" />
     <Content Include="Content\style.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -251,6 +262,7 @@
     <Content Include="Scripts\LayoutScripts\smoothscroll.js" />
     <Content Include="Scripts\LayoutScripts\waypoints.min.js" />
     <Content Include="Scripts\LayoutScripts\wow.min.js" />
+    <Content Include="Scripts\pace.min.js" />
     <Content Include="Scripts\Script.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
@@ -265,6 +277,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\OnlineBooking.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

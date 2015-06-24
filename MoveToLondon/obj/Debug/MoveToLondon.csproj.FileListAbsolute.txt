@@ -88,3 +88,5 @@ I:\Odesk\No_Man\BitBucket\movetolondon\MoveToLondon\obj\Debug\MoveToLondon.dll
 I:\Odesk\No_Man\BitBucket\movetolondon\MoveToLondon\obj\Debug\MoveToLondon.pdb
 I:\Odesk\No_Man\BitBucket\movetolondon\MoveToLondon\bin\EntityFramework.SqlServer.dll
 I:\Odesk\No_Man\BitBucket\movetolondon\MoveToLondon\bin\EntityFramework.SqlServer.xml
+E:\Projects\MoveToLondon\MoveToLondon\bin\EntityFramework.SqlServer.dll
+E:\Projects\MoveToLondon\MoveToLondon\bin\EntityFramework.SqlServer.xml

@@ -12,8 +12,6 @@ namespace MoveToLondon.Models
         [Key, ScaffoldColumn(false)]
         public int ID { get; set; }
 
-        private string path;
-
         public string Path
         {
             get;

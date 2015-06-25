@@ -1,0 +1,109 @@
+﻿@model MoveToLondon.Models.OnlineBooking
+
+@{
+    ViewBag.Title = "OnlineBooking";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="pagestart" class="pfblock pfblock-gray">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-10 col-sm-offset-1">
+                <div class="pfblock-header wow fadeInUp">
+                    <h2 class="pfblock-title">Here are our rooms you would like to book!</h2>
+                    <div class="pfblock-line"></div>
+                    <div class="pfblock-subtitle">
+                        We believe you will enjoy our services.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- .container -->
+    @for (int i = 0; i < Model.Rooms.Count; i++)
+    {
+        string id = "room" + i + "Slider";
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-1">
+                </div>
+                <div class="col-sm-5">
+                    <div id="@id" class="carousel slide wow zoomIn" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            @{
+        int counter = 0;
+        foreach (var photo in Model.Rooms[i].ListRoomPhoto)
+        {
+            string itemClass = "";
+            if (counter == 0)
+            {
+                itemClass = "item active";
+            }
+            else
+            {
+                itemClass = "item";
+            }
+            counter++;
+            <div class="@itemClass">
+                <img src="@photo.Path" style="width: 500px; height:500px" alt="First slide">
+            </div>
+        }
+                            }
+                        </div>
+                        <!-- /carousel-inner -->
+                        <a class="left carousel-control" href="#@id" data-slide="prev">
+                            <span class="fa fa-chevron-left"></span>
+                        </a>
+                        <a class="right carousel-control" href="#@id" data-slide="next">
+                            <span class="fa fa-chevron-right"></span>
+                        </a>
+                    </div>
+                    <!-- /carousel -->
+                </div>
+                <div class="col-sm-1">
+                </div>
+                <div class="col-sm-5">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 col-lg-12">
+                                <h2 class="wow slideInRight" data-wow-delay=".1s">@Model.Rooms[i].Title</h2>
+                                <div class="wow slideInRight" data-wow-delay=".2s">
+                                    Available Now
+                                </div>
+                                <div class="wow slideInRight" data-wow-delay=".3s">
+                                    &pound;@Model.Rooms[i].RentPerMonth per Month
+                                </div>
+                                <div class="wow slideInRight" data-wow-delay=".4s">
+                                    @Model.Rooms[i].Address
+                                </div>
+                                <div class="wow slideInRight" style="white-space: pre-line" data-wow-delay=".5s">
+                                    @Model.Rooms[i].Description
+                                </div>
+                            </div>
+                        </div><!-- .row -->
+                    
+                    </div><!-- .container -->
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 col-lg-12 calltoaction-btn wow zoomIn" data-wow-delay=".3s">
+                    <a href="#" class="btn btn-lg">Book It Now</a>
+                </div>
+            </div>
+        </div>
+        <!-- .container -->
+        <br />
+        <br />
+
+        <div class="pfblock-line"></div>
+        <br />
+    }
+
+</section>
+<!-- Services end -->

@@ -329,8 +329,8 @@ textarea.form-control {
 }
 
 .calltoaction-btn > .btn {
-    background: rgba(255, 255, 255, .8);
-    color: #111;
+    background: rgba(20, 18, 18, 0.80);
+    color: #fbf5f5;
 	margin-top: 5px;
 	margin-bottom: 5px;
 }

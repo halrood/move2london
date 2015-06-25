@@ -36,7 +36,8 @@ namespace MoveToLondon.Models
             #region Descriptions
 
             string Room1_Description = @"Bright and lovely room with a lot of storages available for couple.
-                                        In the room, there are a double bed, a desk, a big wardrobe, 2 shelves, 2 chest of drawers and a fridge.
+                                        In the room, there are a double bed, a desk, a big wardrobe, 2 shelves, 
+                                        2 chest of drawers and a fridge.
                                         2 Bathrooms
  
  

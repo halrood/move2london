@@ -143,12 +143,12 @@
 
 			if (( c_name== '' || c_email == '' || c_message == '') || (!isValidEmailAddress(c_email) )) {
 				response.fadeIn(500);
-				response.html('<i class="fa fa-warning"></i> Certains champs sont vides sil vous plaît de les remplir et essayez à nouveau.');
+				response.html('<i class="fa fa-warning"></i> Some fields are empty or invalid.');
 			}
 
 			else {				
 				    $('#contact-form .ajax-hidden').fadeOut(500);
-				    response.html("Message Envoyé. Je vous contacterai dès que possible. Merci.").fadeIn(500);
+				    response.html("Message sent. We will contact you soon. Thank you.").fadeIn(500);
 				}
             
             	return false;

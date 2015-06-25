@@ -76,6 +76,10 @@ h1, h2, h3, h4, h5, h6 {
 	color: #222;
 }
 
+#mainheading {
+	font: 900 40px/1.2 Raleway, sans-serif;
+}
+
 h2 {
 	font-size: 30px;
 	margin: 0 0 30px;
@@ -325,8 +329,8 @@ textarea.form-control {
 }
 
 .calltoaction-btn > .btn {
-    background: rgba(255, 255, 255, .8);
-    color: #111;
+    background: rgba(20, 18, 18, 0.80);
+    color: #fbf5f5;
 	margin-top: 5px;
 	margin-bottom: 5px;
 }
@@ -387,7 +391,7 @@ textarea.form-control {
 
 .start {
 	font-family: Raleway, "Times New Roman", Times, sans-serif;
-	font-size: 16px;
+	font-size: 25px;
 	font-style: normal;
 	text-transform: none;
 	margin: 15px 0;
@@ -969,3 +973,10 @@ figure.effect-bubba:hover p {
 
 }
 
+.carousel-control span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 5;
+  display: inline-block;
+}

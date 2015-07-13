@@ -131,11 +131,20 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PayPalController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Logic\ExceptionUtility.cs" />
+    <Compile Include="Logic\PayPalFunctions.cs" />
+    <Compile Include="Models\CartItem.cs" />
+    <Compile Include="Models\Category.cs" />
     <Compile Include="Models\EmailHelper.cs" />
     <Compile Include="Models\OnlineBooking.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\OrderDetail.cs" />
+    <Compile Include="Models\PayPalModel.cs" />
+    <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Room.cs" />
     <Compile Include="Models\RoomContext.cs" />
     <Compile Include="Models\RoomInitializer.cs" />
@@ -278,6 +287,10 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\OnlineBooking.cshtml" />
+    <Content Include="Views\PayPal\TransactionCancel.cshtml" />
+    <Content Include="Views\PayPal\TransactionError.cshtml" />
+    <Content Include="Views\PayPal\TransactionComplete.cshtml" />
+    <Content Include="Views\PayPal\TransactionReview.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

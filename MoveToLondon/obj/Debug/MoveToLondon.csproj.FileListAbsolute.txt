@@ -123,3 +123,4 @@ D:\New folder\MoveToLondon\MoveToLondon\bin\System.Web.WebPages.Deployment.xml
 D:\New folder\MoveToLondon\MoveToLondon\bin\System.Web.WebPages.Razor.xml
 D:\New folder\MoveToLondon\MoveToLondon\obj\Debug\MoveToLondon.dll
 D:\New folder\MoveToLondon\MoveToLondon\obj\Debug\MoveToLondon.pdb
+D:\New folder\MoveToLondon\MoveToLondon\obj\Debug\MoveToLondon.csprojResolveAssemblyReference.cache

@@ -3,18 +3,42 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!-- Services start -->
+@{
+    string text = string.Empty;
+}
+
 <section id="pagestart" class="pfblock pfblock-gray">
     <div class="container">
         <div class="row">
             <div class="col-sm-10 col-sm-offset-1">
                 <div class="pfblock-header wow fadeInUp">
-                    <h2 class="pfblock-title">You have chosen to come to live in London: Congratulations!</h2>
+                    <h2 class="pfblock-title">
+                        @if (Convert.ToBoolean(Session["IsEnglishVersion"]) == true)
+                        {
+                            text = "You have chosen to come to live in London: Congratulations!";
+                        }
+                        else
+                        {
+                            text = "Vous avez choisi de venir vivre à Londres: Félicitations!";
+                        }
+                        @text
+                    </h2>
                     <div class="pfblock-line"></div>
                     <div class="pfblock-subtitle">
-                        The first thing you have to find is an housing and we are here to help you.
-                        Thanks to our great network of landlords, we can propose you many rooms of different types, for small and big budget and in different areas of London. 
-                        Our agents are at your disposal at anytime to advise you and to help you finding the perfect room
+                        @if (Convert.ToBoolean(Session["IsEnglishVersion"]) == true)
+                        {
+                            text = @"The first thing you have to find is an housing and we are here to help you.
+                                    Thanks to our great network of landlords, we can propose you many rooms of different types, for small and big budget and in different areas of London. 
+                                    Our agents are at your disposal at anytime to advise you and to help you finding the perfect room";
+                        }
+                        else
+                        {
+                            text = @"La première chose que vous devez trouver est un logement et nous sommes là pour vous aider.
+                                    Grâce à notre important réseau de propriétaires londoniens, nous pouvons vous proposer des chambres de tout type,
+                                    pour tout budget et dans les différentes zones de Londres. Nos agents sont à votre disposition pour vous conseiller
+                                    et pour vous aider à trouver la chambre parfaite.";
+                        }
+                        @text
                     </div>
                 </div>
             </div>
@@ -22,12 +46,34 @@
         <div class="row">
             <div class="col-sm-10 col-sm-offset-1">
                 <div class="pfblock-header wow fadeInUp">
-                    <h2 class="pfblock-title">How does it work?</h2>
+                    <h2 class="pfblock-title">
+                        @if (Convert.ToBoolean(Session["IsEnglishVersion"]) == true)
+                        {
+                            text = "How does it work?";
+                        }
+                        else
+                        {
+                            text = "Comment ça marche?";
+                        }
+                        @text
+                    </h2>
                     <div class="pfblock-line"></div>
                     <div class="pfblock-subtitle">
-                        You can get in touch with an agent of your choice and he will propose you several rooms corresponding to your criteria. 
-                        If you are in London, you can meet the agent and view rooms to choose the best one.
-                        If you are not in London, you can book your room online and move the day of your arrived (you must contact an agent before booking).
+                        @if (Convert.ToBoolean(Session["IsEnglishVersion"]) == true)
+                        {
+                            text = @"You can get in touch with an agent of your choice and he will propose you several rooms corresponding to your criteria. 
+                                    If you are in London, you can meet the agent and view rooms to choose the best one.
+                                    If you are not in London, you can book your room online and move the day of your arrived (you must contact an agent before booking).";
+                        }
+                        else
+                        {
+                            text = @"Vous pouvez contacter un de nos agents de votre choix afin qu'il vous propose des chambres adaptées à vos critères.
+                                    Si vous êtes déjà sur Londres, vous pouvez rencontrer cet agent pour qu'il vous fasse visiter plusieurs chambres dans
+                                    le but de choisir celle qui vous correspond le mieux. Si vous n'êtes pas encore sur Londres, vous pouvez réserver votre
+                                    chambre en ligne et emménager le jour de votre arrivé (vous devez contacter un agent avant d'effectuer une réservation)";
+                        }
+                        @text
+
                     </div>
                 </div>
             </div>
@@ -145,7 +191,19 @@
             <div class="col-sm-6 col-sm-offset-3">
 
                 <div class="pfblock-header">
-                    <h2 class="pfblock-title">Drop Us a Line</h2>
+                    <h2 class="pfblock-title">
+                        @if (Convert.ToBoolean(Session["IsEnglishVersion"]) == true)
+                        {
+                            text = "Drop Us a Line";
+                        }
+                        else
+                        {
+                            text = "Écrivez-Nous";
+                        }
+                        @text
+
+
+                    </h2>
                     <div class="pfblock-line"></div>
                     @*<div class="pfblock-subtitle">
                         Some Text Goes Here
@@ -165,12 +223,33 @@
                 <form id="contact-form" role="form">
                     <div class="ajax-hidden">
                         <div class="form-group wow fadeInUp">
-                            <label class="sr-only" for="c_name">Name</label>
+                            <label class="sr-only" for="c_name">
+                                @if (Convert.ToBoolean(Session["IsEnglishVersion"]) == true)
+                                {
+                                    text = "Name";
+                                }
+                                else
+                                {
+                                    text = "Nom";
+                                }
+                                @text
+                            </label>
                             <input type="text" id="c_name" class="form-control" name="c_name" placeholder="Name">
                         </div>
 
                         <div class="form-group wow fadeInUp" data-wow-delay=".1s">
-                            <label class="sr-only" for="c_email">Email</label>
+                            <label class="sr-only" for="c_email">
+
+                                @if (Convert.ToBoolean(Session["IsEnglishVersion"]) == true)
+                                {
+                                    text = "Email";
+                                }
+                                else
+                                {
+                                    text = "Email";
+                                }
+                                @text
+                            </label>
                             <input type="email" id="c_email" class="form-control" name="c_email" placeholder="E-mail">
                         </div>
 
@@ -178,7 +257,18 @@
                             <textarea class="form-control" id="c_message" name="c_message" rows="7" placeholder="Message"></textarea>
                         </div>
 
-                        <button type="submit" class="btn btn-lg btn-block wow fadeInUp" data-wow-delay=".3s">Send Message</button>
+                        <button type="submit" class="btn btn-lg btn-block wow fadeInUp" data-wow-delay=".3s">
+
+                            @if (Convert.ToBoolean(Session["IsEnglishVersion"]) == true)
+                            {
+                                text = "Send Message";
+                            }
+                            else
+                            {
+                                text = "Envoyer Le Message";
+                            }
+                            @text
+                        </button>
                     </div>
                     <div class="ajax-response"></div>
                 </form>

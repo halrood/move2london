@@ -15,6 +15,7 @@ namespace MoveToLondon.Controllers
 
         public ActionResult Index()
         {
+            Session["IsEnglishVersion"] = false;
             return View();
         }
 

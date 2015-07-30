@@ -59,7 +59,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/16/2015 10:37:56</publishTime>
     </File>
     <File Include="bin/MoveToLondon.dll">
-      <publishTime>06/25/2015 12:12:17</publishTime>
+      <publishTime>07/14/2015 15:31:57</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>06/16/2015 10:08:46</publishTime>
@@ -116,7 +116,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/16/2015 10:37:23</publishTime>
     </File>
     <File Include="Content/style.css">
-      <publishTime>06/25/2015 11:48:58</publishTime>
+      <publishTime>07/13/2015 11:23:18</publishTime>
     </File>
     <File Include="Content/themes/base/images/ui-bg_flat_0_aaaaaa_40x100.png">
       <publishTime>06/16/2015 10:37:41</publishTime>
@@ -317,10 +317,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/16/2015 10:37:23</publishTime>
     </File>
     <File Include="Images/cover2.jpg">
-      <publishTime>06/24/2015 10:33:59</publishTime>
+      <publishTime>07/01/2015 11:00:40</publishTime>
     </File>
     <File Include="Images/favicon.ico">
       <publishTime>06/24/2015 10:33:59</publishTime>
+    </File>
+    <File Include="Images/frenchflag.JPEG">
+      <publishTime>07/14/2015 11:04:17</publishTime>
     </File>
     <File Include="Images/item-3.jpg">
       <publishTime>06/24/2015 10:33:59</publishTime>
@@ -330,6 +333,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Images/preloader.gif">
       <publishTime>06/16/2015 11:40:30</publishTime>
+    </File>
+    <File Include="Images/uk_flag.gif">
+      <publishTime>07/14/2015 11:04:17</publishTime>
     </File>
     <File Include="packages.config">
       <publishTime>06/24/2015 10:34:00</publishTime>
@@ -419,16 +425,28 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/16/2015 10:37:45</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>06/24/2015 10:33:59</publishTime>
+      <publishTime>07/01/2015 11:01:58</publishTime>
     </File>
     <File Include="Views/Home/OnlineBooking.cshtml">
-      <publishTime>06/25/2015 11:49:30</publishTime>
+      <publishTime>07/14/2015 12:40:47</publishTime>
+    </File>
+    <File Include="Views/PayPal/TransactionCancel.cshtml">
+      <publishTime>07/09/2015 12:18:17</publishTime>
+    </File>
+    <File Include="Views/PayPal/TransactionComplete.cshtml">
+      <publishTime>07/09/2015 12:18:07</publishTime>
+    </File>
+    <File Include="Views/PayPal/TransactionError.cshtml">
+      <publishTime>07/09/2015 12:18:18</publishTime>
+    </File>
+    <File Include="Views/PayPal/TransactionReview.cshtml">
+      <publishTime>07/13/2015 15:48:28</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>06/16/2015 10:37:23</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>06/25/2015 10:23:15</publishTime>
+      <publishTime>07/14/2015 12:44:36</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>06/16/2015 10:37:23</publishTime>
@@ -437,7 +455,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/16/2015 10:37:23</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>06/25/2015 12:13:21</publishTime>
+      <publishTime>07/14/2015 15:32:12</publishTime>
     </File>
   </ItemGroup>
 </Project>

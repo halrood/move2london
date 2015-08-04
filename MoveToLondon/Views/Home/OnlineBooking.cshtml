@@ -4,16 +4,36 @@
     ViewBag.Title = "OnlineBooking";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+@{
+    string text = string.Empty;
+}
 <section id="pagestart" class="pfblock pfblock-gray">
     <div class="container">
         <div class="row">
             <div class="col-sm-10 col-sm-offset-1">
                 <div class="pfblock-header wow fadeInUp">
-                    <h2 class="pfblock-title">Here are our rooms you would like to book!</h2>
+                    <h2 class="pfblock-title">
+                        @if (Convert.ToBoolean(Session["IsEnglishVersion"]) == true)
+                        {
+                            text = "Here are our rooms you would like to book!";
+                        }
+                        else
+                        {
+                            text = "Voici les chambres que nous pouvons actuellement vous proposer";
+                        }
+                        @text
+                    </h2>
                     <div class="pfblock-line"></div>
                     <div class="pfblock-subtitle">
-                        We believe you will enjoy our services.
+                        @if (Convert.ToBoolean(Session["IsEnglishVersion"]) == true)
+                        {
+                            text = "We believe you will enjoy our services.";
+                        }
+                        else
+                        {
+                            text = "Nous espérons que vous trouverez votre bonheur";
+                        }
+                        @text
                     </div>
                 </div>
             </div>
@@ -49,9 +69,9 @@
                 itemClass = "item";
             }
             counter++;
-            <div class="@itemClass">
-                <img src="@photo.Path" style="width: 500px; height:500px" alt="First slide">
-            </div>
+                                <div class="@itemClass">
+                                    <img src="@photo.Path" style="width: 500px; height:500px" alt="First slide">
+                                </div>
         }
                             }
                         </div>
@@ -73,10 +93,26 @@
                             <div class="col-md-12 col-lg-12">
                                 <h2 class="wow slideInRight" data-wow-delay=".1s">@Model.Rooms[i].Title</h2>
                                 <div class="wow slideInRight" data-wow-delay=".2s">
-                                    Available Now
+                                    @if (Convert.ToBoolean(Session["IsEnglishVersion"]) == true)
+                                    {
+                                        text = "Available Now";
+                                    }
+                                    else
+                                    {
+                                        text = "Disponible dès maintenant";
+                                    }
+                                    @text
                                 </div>
                                 <div class="wow slideInRight" data-wow-delay=".3s">
-                                    &pound;@Model.Rooms[i].RentPerMonth per Month
+                                    @if (Convert.ToBoolean(Session["IsEnglishVersion"]) == true)
+                                    {
+                                        text = "per Month";
+                                    }
+                                    else
+                                    {
+                                        text = "par mois";
+                                    }
+                                    &pound;@Model.Rooms[i].RentPerMonth @text
                                 </div>
                                 <div class="wow slideInRight" data-wow-delay=".4s">
                                     @Model.Rooms[i].Address
@@ -85,15 +121,27 @@
                                     @Model.Rooms[i].Description
                                 </div>
                             </div>
-                        </div><!-- .row -->
-                    
-                    </div><!-- .container -->
+                        </div>
+                        <!-- .row -->
+
+                    </div>
+                    <!-- .container -->
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-md-12 col-lg-12 calltoaction-btn wow zoomIn" data-wow-delay=".3s">
-                    <a href="@Url.Action("ValidateCommand", "PayPal", new { product = @Model.Rooms[i].Title })" target="_blank" class="btn btn-lg">Book It Now</a>
+                    <a href="@Url.Action("ValidateCommand", "PayPal", new { product = @Model.Rooms[i].Title })" target="_blank" class="btn btn-lg">
+                        @if (Convert.ToBoolean(Session["IsEnglishVersion"]) == true)
+                        {
+                            text = "Book It Now";
+                        }
+                        else
+                        {
+                            text = "Réservez";
+                        }
+                        @text
+                    </a>
                 </div>
             </div>
         </div>

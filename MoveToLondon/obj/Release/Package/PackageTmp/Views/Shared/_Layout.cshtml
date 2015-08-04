@@ -24,7 +24,9 @@
 <body>
 
     <!-- Preloader -->
-
+    @{
+        string text = string.Empty;
+    }
     <div id="preloader">
         <div id="status"></div>
     </div>
@@ -67,15 +69,45 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="@Url.Action("Index", "Home")">Room Flog</a>
-                    @*<img src="~/Images/uk_flag.gif"/>
-                    <img src="~/Images/frenchflag.JPEG"/>*@
+                    <a href="@Url.Action("Main", "Home", new { version = "english" })"><img src="~/Images/uk_flag.gif" height="23" width="38"/></a>
+                    <a href="@Url.Action("Main", "Home", new { version = "french" })"><img src="~/Images/frenchflag.JPEG" height="23" width="38"/></a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="custom-collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#services">About Us</a></li>
-                        <li><a href="@Url.Action("OnlineBooking","Home")">Book your Room</a></li>
-                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#services">
+                            @if (Convert.ToBoolean(Session["IsEnglishVersion"]) == true)
+                            {
+                                text = "About Us";
+                            }
+                            else
+                            {
+                                text = "A propos";
+                            }
+                            @text
+                            </a></li>
+                        <li><a href="@Url.Action("OnlineBooking","Home")">
+                            @if (Convert.ToBoolean(Session["IsEnglishVersion"]) == true)
+                            {
+                                text = "Book your Room";
+                            }
+                            else
+                            {
+                                text = "Réserver votre chambre";
+                            }
+                            @text
+                            </a></li>
+                        <li><a href="#">
+                            @if (Convert.ToBoolean(Session["IsEnglishVersion"]) == true)
+                            {
+                                text = "Contact Us";
+                            }
+                            else
+                            {
+                                text = "Nous contacter";
+                            }
+                            @text
+                            </a></li>
                     </ul>
                 </div>
 
@@ -87,6 +119,8 @@
 
     <!-- Navigation end -->
     
+
+
     @RenderBody()
 
     <!-- Footer start -->

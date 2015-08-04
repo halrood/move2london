@@ -56,3 +56,6 @@ D:\New folder\MoveToLondon\MoveToLondon\bin\System.Web.WebPages.Razor.xml
 D:\New folder\MoveToLondon\MoveToLondon\obj\Release\MoveToLondon.csprojResolveAssemblyReference.cache
 D:\New folder\MoveToLondon\MoveToLondon\obj\Release\MoveToLondon.dll
 D:\New folder\MoveToLondon\MoveToLondon\obj\Release\MoveToLondon.pdb
+E:\Projects\MoveToLondon\MoveToLondon\bin\EntityFramework.SqlServer.dll
+E:\Projects\MoveToLondon\MoveToLondon\bin\EntityFramework.SqlServer.xml
+E:\Projects\MoveToLondon\MoveToLondon\obj\Release\MoveToLondon.csprojResolveAssemblyReference.cache

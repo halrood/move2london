@@ -2,6 +2,8 @@
 using MoveToLondon.Models;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -15,19 +17,121 @@ namespace MoveToLondon.Controllers
 
         public ActionResult Index()
         {
-            Session["IsEnglishVersion"] = false;
+            if (Session["IsEnglishVersion"] == null)
+            {
+                Session["IsEnglishVersion"] = true;
+            }
             return View();
         }
 
+        public ActionResult Main(string version)
+        {
+            if (version.ToLower().Equals("english"))
+            {
+                Session["IsEnglishVersion"] = true;    
+            }
+            else if (version.ToLower().Equals("french"))
+            {
+                Session["IsEnglishVersion"] = false;
+            }
+
+            return RedirectToAction("Index");
+        }
+        
         public ActionResult OnlineBooking()
         {
             RoomContext rc = new RoomContext();
             OnlineBooking ob = new Models.OnlineBooking();
 
-            ob.Rooms = rc.Rooms.ToList();
+            //ob.Rooms = rc.Rooms.ToList();
+            ob.Rooms = GetListOfRooms();
             return View(ob);
         }
 
+        private List<Room> GetListOfRooms()
+        {
+            string serverMapPath = Server.MapPath(@"/");
+            string filepath = Convert.ToBoolean(Session["IsEnglishVersion"]) ? serverMapPath + ConfigurationManager.AppSettings["EnglishRoomDataFilePath"].ToString()
+                : serverMapPath + ConfigurationManager.AppSettings["FrenchRoomDataFilePath"].ToString();
+            string line = string.Empty;
+            List<Room> roomsList = new List<Room>();
+            int roomsCounter = -1;
+            bool isDescriptionStarted = false;
+            string description = string.Empty;
+            bool isPathsStarted = false;
+
+            using (StreamReader sr = new StreamReader(filepath))
+            {
+                while ((line = sr.ReadLine()) != null)
+                {
+                    if (string.IsNullOrWhiteSpace(line))
+                    {
+                        continue;
+                    }
+                    if (string.IsNullOrEmpty(line))
+                    {
+                        continue;
+                    }
+                    
+                    if (line.StartsWith("***"))
+                    {
+                        Room room = new Room();
+                        roomsList.Add(room);
+                        roomsCounter++;
+                        isPathsStarted = false;
+                        continue;
+                    }
+                    if (line.Trim().ToLower().StartsWith("title:"))
+                    {
+                        roomsList[roomsCounter].Title = line.Split(new char[] { ':' }, StringSplitOptions.RemoveEmptyEntries)[1];
+                        continue;
+                    }
+                    if (line.Trim().ToLower().StartsWith("address:"))
+                    {
+                        roomsList[roomsCounter].Address = line.Split(new char[] { ':' }, StringSplitOptions.RemoveEmptyEntries)[1];
+                        continue;
+                    }
+                    if (line.Trim().ToLower().StartsWith("rentpermonth:"))
+                    {
+                        int rent = 0;
+                        int.TryParse(line.Trim().Split(new char[] { ':' }, StringSplitOptions.RemoveEmptyEntries)[1], out rent);
+                        roomsList[roomsCounter].RentPerMonth = rent;
+                        continue;
+                    }
+                    if (line.Trim().ToLower().StartsWith("description:"))
+                    {
+                        
+                        isDescriptionStarted = true;
+                        description += line.Split(new char[] { ':' }, StringSplitOptions.RemoveEmptyEntries)[1];
+                        continue;
+                    }
+                    if (line.Trim().ToLower().StartsWith("photospaths:"))
+                    {
+                        isDescriptionStarted = false;
+                        roomsList[roomsCounter].Description = description;
+                        description = string.Empty;
+                        isPathsStarted = true;
+                        continue;
+                    }
+                    if (isDescriptionStarted)
+                    {
+                        
+                        description += "\n" + line;
+                    }
+                    if (isPathsStarted)
+                    {
+                        RoomPhoto rf = new RoomPhoto();
+                        rf.Path = line.Trim();
+                        if (roomsList[roomsCounter].ListRoomPhoto == null)
+                            roomsList[roomsCounter].ListRoomPhoto = new List<RoomPhoto>();
+                        roomsList[roomsCounter].ListRoomPhoto.Add(rf);
+                    }
+
+                } 
+            }
+
+            return roomsList;
+        }
         //public ActionResult BookRoom_ButtonClick()
         //{
         //    NVPAPICaller payPalCaller = new NVPAPICaller();

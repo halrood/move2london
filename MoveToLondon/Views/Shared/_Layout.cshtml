@@ -69,8 +69,8 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="@Url.Action("Index", "Home")">Room Flog</a>
-                    @*<img src="~/Images/uk_flag.gif"/>
-                    <img src="~/Images/frenchflag.JPEG"/>*@
+                    <a href="@Url.Action("Main", "Home", new { version = "english" })"><img src="~/Images/uk_flag.gif" height="23" width="38"/></a>
+                    <a href="@Url.Action("Main", "Home", new { version = "french" })"><img src="~/Images/frenchflag.JPEG" height="23" width="38"/></a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="custom-collapse">
@@ -119,6 +119,8 @@
 
     <!-- Navigation end -->
     
+
+
     @RenderBody()
 
     <!-- Footer start -->

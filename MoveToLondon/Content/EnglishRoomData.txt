@@ -1,0 +1,73 @@
+***Room1 Data
+
+Title:Double Room
+Address:OLDHILL STREET N16 6NA- LONDON
+
+RentPerMonth:30
+
+Description:Bright and lovely room with a lot of storages available for couple.
+In the room, there are a double bed, a desk, a big wardrobe, 2 shelves, 
+2 chest of drawers and a fridge.
+2 Bathrooms
+ 
+ 
+5 min walk away from Stoke Newington station 
+(Rail train, zone 2)
+5 min by bus from Manor House station
+(Piccadilly line, zone 2)
+ 
+Deposit : &pound750 (&pound30 Check out fee) 
+Bills included (cleaning included) - except gas and electricity
+Ask us before booking
+PhotosPaths:
+/Assets/Room1Image1.jpg
+/Assets/Room1Image2.jpg
+/Assets/Room1Image3.jpg
+
+***Room2 Data
+Title:Double Room
+Address:OLDHILL STREET N16 6NA- LONDON
+RentPerMonth:30
+Description:Bright and lovely room with a lot of storages available for couple.
+In the room, there are a double bed, a desk, a big wardrobe, 2 shelves, 
+2 chest of drawers and a fridge.
+2 Bathrooms
+ 
+ 
+5 min walk away from Stoke Newington station 
+(Rail train, zone 2)
+5 min by bus from Manor House station
+(Piccadilly line, zone 2)
+ 
+Deposit : &pound750 (&pound30 Check out fee) 
+Bills included (cleaning included) - except gas and electricity
+Ask us before booking
+PhotosPaths:
+/Assets/Room2Image1.jpg
+/Assets/Room2Image2.jpg
+/Assets/Room2Image3.jpg
+
+***Room3 Data
+Title:Double Room
+Address:OLDHILL STREET N16 6NA- LONDON
+RentPerMonth:30
+
+Description:Bright and lovely room with a lot of storages available for couple.
+In the room, there are a double bed, a desk, a big wardrobe, 2 shelves, 
+2 chest of drawers and a fridge.
+2 Bathrooms
+ 
+ 
+5 min walk away from Stoke Newington station 
+(Rail train, zone 2)
+5 min by bus from Manor House station
+(Piccadilly line, zone 2)
+ 
+Deposit : &pound750 (&pound30 Check out fee) 
+Bills included (cleaning included) - except gas and electricity
+Ask us before booking
+PhotosPaths:
+
+/Assets/Room3Image1.jpg
+/Assets/Room3Image2.jpg
+/Assets/Room3Image3.jpg

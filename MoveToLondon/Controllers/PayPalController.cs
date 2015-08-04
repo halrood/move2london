@@ -13,7 +13,7 @@ namespace MoveToLondon.Controllers
         //[Authorize(Roles="Customers")]
         public ActionResult ValidateCommand(string product)
         {
-            string totalPrice = "150";
+            string totalPrice = ConfigurationManager.AppSettings["transaction_amount"].ToString();
             bool useSandbox = Convert.ToBoolean(ConfigurationManager.AppSettings["IsSandbox"]);
             var paypal = new PayPalModel(useSandbox);
 

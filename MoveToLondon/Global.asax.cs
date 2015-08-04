@@ -25,9 +25,9 @@ namespace MoveToLondon
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            Database.SetInitializer(new RoomInitializer());
-            RoomContext db = new RoomContext();
-            db.Database.Initialize(true);
+            //Database.SetInitializer(new RoomInitializer());
+            //RoomContext db = new RoomContext();
+            //db.Database.Initialize(true);
         }
     }
 }

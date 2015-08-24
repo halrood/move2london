@@ -1,21 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace MoveToLondon.Models
 {
-    public class RoomPhoto
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
+
+    [Table("RoomPhotos")]
+    public partial class RoomPhoto
     {
-        [Key, ScaffoldColumn(false)]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public RoomPhoto()
+        {
+            RoomsPhotosBridges = new HashSet<RoomsPhotosBridge>();
+        }
+
         public int ID { get; set; }
 
-        public string Path
-        {
-            get;
-            set;
-        }
+        public string Path { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<RoomsPhotosBridge> RoomsPhotosBridges { get; set; }
     }
 }

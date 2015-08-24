@@ -1,85 +1,40 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace MoveToLondon.Models
 {
-    public class Room
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
+
+    public partial class Room
     {
-        [Key, ScaffoldColumn(false), DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Room()
+        {
+            RoomsPhotosBridges = new HashSet<RoomsPhotosBridge>();
+        }
+
         public int ID { get; set; }
 
-        //private string title;
+        public string Title { get; set; }
 
-        public string Title
-        {
-            get;
-            set;
-        }
+        public string RoomType { get; set; }
 
-        //private ICollection<RoomPhoto> listRoomPhoto;
+        public string AvailabilityStatus { get; set; }
 
-        public virtual ICollection<RoomPhoto> ListRoomPhoto
-        {
-            get;
-            set;
-        }
-        //public List<string> Photos
-        //{
-        //    get;
-        //    set;
-        //}
+        public int RentPerMonth { get; set; }
 
-        //private string roomType;    //: Double Room / Single Room
+        public int BookingFee { get; set; }
 
-        public string RoomType
-        {
-            get;
-            set;
-        }
+        public string Address { get; set; }
 
-        //private string availabilityStatus;
+        public string Description { get; set; }
 
-        public string AvailabilityStatus
-        {
-            get;
-            set;
-        }
+        public bool IsFrench { get; set; }
 
-        //private int rentPerMonth;
+        public int RoomSequence { get; set; }
 
-        public int RentPerMonth
-        {
-            get;
-            set;
-        }
-
-        //private int bookingFee;
-
-        public int BookingFee
-        {
-            get;
-            set;
-        }
-
-        //private string address;
-
-        public string Address
-        {
-            get;
-            set;
-        }
-
-        //private string description;
-
-        public string Description
-        {
-            get;
-            set;
-        }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<RoomsPhotosBridge> RoomsPhotosBridges { get; set; }
     }
 }

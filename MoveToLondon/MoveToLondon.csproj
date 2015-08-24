@@ -51,6 +51,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -130,6 +132,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PayPalController.cs" />
     <Compile Include="Global.asax.cs">
@@ -137,19 +140,30 @@
     </Compile>
     <Compile Include="Logic\ExceptionUtility.cs" />
     <Compile Include="Logic\PayPalFunctions.cs" />
-    <Compile Include="Models\CartItem.cs" />
-    <Compile Include="Models\Category.cs" />
-    <Compile Include="Models\EmailHelper.cs" />
-    <Compile Include="Models\OnlineBooking.cs" />
-    <Compile Include="Models\Order.cs" />
-    <Compile Include="Models\OrderDetail.cs" />
-    <Compile Include="Models\PayPalModel.cs" />
-    <Compile Include="Models\Product.cs" />
+    <Compile Include="Migrations\201508201744323_Update.cs" />
+    <Compile Include="Migrations\201508201744323_Update.Designer.cs">
+      <DependentUpon>201508201744323_Update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\MoveToLondon.cs" />
     <Compile Include="Models\Room.cs" />
-    <Compile Include="Models\RoomContext.cs" />
-    <Compile Include="Models\RoomInitializer.cs" />
     <Compile Include="Models\RoomPhoto.cs" />
+    <Compile Include="Models\RoomsPhotosBridge.cs" />
+    <Compile Include="Models\UserProfile.cs" />
+    <Compile Include="Models_Obslete\CartItem.cs" />
+    <Compile Include="Models_Obslete\Category.cs" />
+    <Compile Include="Models_Obslete\EmailHelper.cs" />
+    <Compile Include="Models_Obslete\OnlineBooking.cs" />
+    <Compile Include="Models_Obslete\Order.cs" />
+    <Compile Include="Models_Obslete\OrderDetail.cs" />
+    <Compile Include="Models_Obslete\PayPalModel.cs" />
+    <Compile Include="Models_Obslete\Product.cs" />
+    <Compile Include="Models_Obslete\Room.cs" />
+    <Compile Include="Models_Obslete\RoomContext.cs" />
+    <Compile Include="Models_Obslete\RoomInitializer.cs" />
+    <Compile Include="Models_Obslete\RoomPhoto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\RoomData.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\RoomFlog.mdf" />
@@ -167,6 +181,7 @@
     <Content Include="Assets\Room3Image3.jpg" />
     <Content Include="Content\animate.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\dropzone.css" />
     <Content Include="Content\FrenchRoomData.txt" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\pace.css" />
@@ -249,6 +264,7 @@
     <Content Include="Images\pattern.png" />
     <Content Include="Images\preloader.gif" />
     <Content Include="Images\uk_flag.gif" />
+    <Content Include="Scripts\dropzone.min.js" />
     <Content Include="Scripts\LayoutScripts\bootstrap.min.js" />
     <Content Include="Scripts\LayoutScripts\custom.js" />
     <Content Include="Scripts\LayoutScripts\imagesloaded.pkgd.js" />
@@ -297,10 +313,22 @@
     <Content Include="Views\PayPal\TransactionError.cshtml" />
     <Content Include="Views\PayPal\TransactionComplete.cshtml" />
     <Content Include="Views\PayPal\TransactionReview.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\Login.cshtml" />
+    <Content Include="Views\Admin\roomslist.cshtml" />
+    <Content Include="Views\Admin\uploadimages.cshtml" />
+    <Content Include="Views\Home\contactus.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201508201744323_Update.resx">
+      <DependentUpon>201508201744323_Update.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Content\images\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

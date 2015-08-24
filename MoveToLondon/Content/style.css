@@ -980,3 +980,18 @@ figure.effect-bubba:hover p {
   z-index: 5;
   display: inline-block;
 }
+
+.dropzone .dz-default.dz-message
+{
+    background-image:none;
+    width:100%;left:0;
+    margin-left:auto;
+    text-align:center
+
+}
+.dropzone .dz-default.dz-message span
+{
+    display:inline;
+    font-size:30px
+
+}

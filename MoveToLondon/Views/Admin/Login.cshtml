@@ -1,0 +1,50 @@
+﻿@model MoveToLondon.Controllers.UserData
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-10">
+        <div class="panel panel-default">
+            @using (Html.BeginForm("Login", "Admin", FormMethod.Post, new { @class = "form-horizontal form-border no-margin" }))
+            {
+            <div class="panel-body">
+                <div class="form-group">
+                    <label class="col-lg-2"></label>
+                    <label class="col-lg-5">Login</label>
+                </div>
+                <!-- /form-group -->
+                <div class="form-group">
+                    <label class="control-label col-lg-2">Username</label>
+                    <div class="col-lg-5">
+                        @Html.TextBoxFor(o => o.UserName, new { @class="form-control input-sm", placeholder="Username" })
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /form-group -->
+                <div class="form-group">
+                    <label class="control-label col-lg-2">Password</label>
+                    <div class="col-lg-5">
+                        @Html.PasswordFor(o => o.Password, new { @class="form-control input-sm", placeholder="Password" })
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /form-group -->
+                
+            </div>
+            <div class="panel-footer">
+                <input type="submit" class="btn btn-primary" value="Login">
+            </div>
+            }
+                
+        </div>
+        <!-- /panel -->
+    </div>
+    <!-- /.col-->
+
+</div>
+
+

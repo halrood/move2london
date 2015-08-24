@@ -1,0 +1,54 @@
+﻿@model MoveToLondon.Models.RoomData
+
+@{
+    ViewBag.Title = "roomslist";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="padding-md">
+    <div class="row">
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-7">
+            <div class="panel panel-default table-responsive">
+                <table class="table table-bordered table-condensed table-hover table-striped table-vertical-center">
+                    <thead>
+                        <tr>
+                            <th class="text-center">Title</th>
+                            <th class="text-center">Rent</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (MoveToLondon.Models.Room item in Model.Rooms)
+                        {
+                            <tr>
+                                <td class="text-center">
+                                    @item.Title
+                                </td>
+                                <td class="text-center">
+                                    @{
+                                    string budgetText = string.Empty;
+                                    budgetText = item.RentPerMonth.ToString() + " per month";
+                                                
+                                    }
+                                    &pound @budgetText
+                                </td>
+                                <td class="text-center">
+                                    <a class="btn btn-sm btn-success" href="@Url.Action("DeleteRoom", "Admin", new { roomId = item.ID, sequencenumber = item.RoomSequence })">Delete</a>
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+            <!-- /panel -->
+        </div>
+        <!-- /tab1 -->
+
+        <div class="col-md-3">
+        </div>
+    </div>
+</div>
+

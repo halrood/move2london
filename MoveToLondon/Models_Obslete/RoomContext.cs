@@ -7,16 +7,16 @@ using System.Threading.Tasks;
 
 namespace MoveToLondon.Models
 {
-    public class RoomContext : DbContext
+    public class RoomContext //: DbContext
     {
-        public RoomContext()
-            : base("MoveToLondon")
-        {
+        //public RoomContext()
+        //    : base("MoveToLondon")
+        //{
 
-        }
+        //}
 
-        public DbSet<Room> Rooms { get; set; }
-        public DbSet<RoomPhoto> RoomPhotos { get; set; }
+        //public DbSet<Room> Rooms { get; set; }
+        //public DbSet<RoomPhoto> RoomPhotos { get; set; }
 
         //public DbSet<Category> Categories { get; set; }
         //public DbSet<Product> Products { get; set; }

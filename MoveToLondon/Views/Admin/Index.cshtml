@@ -1,0 +1,94 @@
+﻿@model MoveToLondon.Models.RoomData
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-10">
+        <br />
+        <br />
+        <div class="row">
+            <div class="col-md-5">
+            </div>
+            <div class="col-md-2">
+                <a href="@Url.Action("roomslist","Admin")" class="btn btn-primary">Existing Rooms</a>
+            </div>
+        </div>
+        <br />
+        <br />
+        <div class="panel panel-default">
+            @using (Html.BeginForm("Index", "Admin", FormMethod.Post, new { @class = "form-horizontal form-border no-margin" }))
+            {
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label class="col-lg-2"></label>
+                        <label class="col-lg-5">Room Data in English</label>
+                        <label class="col-lg-5">Room Data in French</label>
+                    </div>
+                    <!-- /form-group -->
+                    <div class="form-group">
+                        <label class="control-label col-lg-2">Title</label>
+                        <div class="col-lg-5">
+                            @Html.TextBoxFor(o => o.Rooms[0].Title, new { @class = "form-control input-sm", placeholder = "Title" })
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-lg-5">
+                            @Html.TextBoxFor(o => o.Rooms[1].Title, new { @class = "form-control input-sm", placeholder = "Title" })
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- /form-group -->
+                    <div class="form-group">
+                        <label class="control-label col-lg-2">Rent Per Month</label>
+                        <div class="col-lg-5">
+                            @Html.TextBoxFor(o => o.Rooms[0].RentPerMonth, new { @class = "form-control input-sm", placeholder = "Rent" })
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-lg-5">
+                            @Html.TextBoxFor(o => o.Rooms[1].RentPerMonth, new { @class = "form-control input-sm", placeholder = "Rent" })
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- /form-group -->
+                    <div class="form-group">
+                        <label class="control-label col-lg-2">Address</label>
+                        <div class="col-lg-5">
+                            @Html.TextBoxFor(o => o.Rooms[0].Address, new { @class = "form-control input-sm", placeholder = "Address" })
+
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-lg-5">
+                            @Html.TextBoxFor(o => o.Rooms[1].Address, new { @class = "form-control input-sm", placeholder = "Address" })
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- /form-group -->
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">Textarea</label>
+                        <div class="col-lg-5">
+                            @Html.TextAreaFor(o => o.Rooms[0].Description, new { @class = "form-control", rows = "10" })
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-lg-5">
+                            @Html.TextAreaFor(o => o.Rooms[1].Description, new { @class = "form-control", rows = "10" })
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- /form-group -->
+                </div>
+                <div class="panel-footer">
+                    <input type="submit" class="btn btn-primary" value="Procede to photos section">
+                </div>
+            }
+
+        </div>
+        <!-- /panel -->
+    </div>
+    <!-- /.col-->
+
+</div>
+

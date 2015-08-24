@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MoveToLondon.Models;
 
 namespace MoveToLondon.Controllers
 {
@@ -28,7 +29,7 @@ namespace MoveToLondon.Controllers
         {
             if (version.ToLower().Equals("english"))
             {
-                Session["IsEnglishVersion"] = true;    
+                Session["IsEnglishVersion"] = true;
             }
             else if (version.ToLower().Equals("french"))
             {
@@ -37,10 +38,15 @@ namespace MoveToLondon.Controllers
 
             return RedirectToAction("Index");
         }
-        
+
+        public ActionResult contactus()
+        {
+            return View();
+        }
+
+
         public ActionResult OnlineBooking()
         {
-            RoomContext rc = new RoomContext();
             OnlineBooking ob = new Models.OnlineBooking();
 
             //ob.Rooms = rc.Rooms.ToList();
@@ -50,6 +56,20 @@ namespace MoveToLondon.Controllers
 
         private List<Room> GetListOfRooms()
         {
+            Models.MoveToLondon mtl = new Models.MoveToLondon();
+
+            List<Room> rooms = new List<Models.Room>();
+            if (Convert.ToBoolean(Session["IsEnglishVersion"]) == true)
+            {
+                rooms = mtl.Rooms.Where(o => !o.IsFrench).ToList();
+            }
+            else
+            {
+                rooms = mtl.Rooms.Where(o => o.IsFrench).ToList();
+            }
+
+            return rooms;
+
             string serverMapPath = Server.MapPath(@"/");
             string filepath = Convert.ToBoolean(Session["IsEnglishVersion"]) ? serverMapPath + ConfigurationManager.AppSettings["EnglishRoomDataFilePath"].ToString()
                 : serverMapPath + ConfigurationManager.AppSettings["FrenchRoomDataFilePath"].ToString();
@@ -72,7 +92,7 @@ namespace MoveToLondon.Controllers
                     {
                         continue;
                     }
-                    
+
                     if (line.StartsWith("***"))
                     {
                         Room room = new Room();
@@ -100,7 +120,7 @@ namespace MoveToLondon.Controllers
                     }
                     if (line.Trim().ToLower().StartsWith("description:"))
                     {
-                        
+
                         isDescriptionStarted = true;
                         description += line.Split(new char[] { ':' }, StringSplitOptions.RemoveEmptyEntries)[1];
                         continue;
@@ -115,19 +135,19 @@ namespace MoveToLondon.Controllers
                     }
                     if (isDescriptionStarted)
                     {
-                        
+
                         description += "\n" + line;
                     }
                     if (isPathsStarted)
                     {
                         RoomPhoto rf = new RoomPhoto();
                         rf.Path = line.Trim();
-                        if (roomsList[roomsCounter].ListRoomPhoto == null)
-                            roomsList[roomsCounter].ListRoomPhoto = new List<RoomPhoto>();
-                        roomsList[roomsCounter].ListRoomPhoto.Add(rf);
+                        //if (roomsList[roomsCounter].ListRoomPhoto == null)
+                        //    roomsList[roomsCounter].ListRoomPhoto = new List<RoomPhoto>();
+                        //roomsList[roomsCounter].ListRoomPhoto.Add(rf);
                     }
 
-                } 
+                }
             }
 
             return roomsList;
